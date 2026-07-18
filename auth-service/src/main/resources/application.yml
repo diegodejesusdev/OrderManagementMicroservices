@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    # Dockerized MySQL is exposed on host port 3307 (see docker-compose.yml).
+    url: jdbc:mysql://localhost:3307/auth_db
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:devpassword}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# JWT signing config. Both values MUST be overridden in production via
+# environment variables (JWT_SECRET, JWT_EXPIRATION) — the defaults below
+# are only meant to let the service boot in local development.
+security:
+  jwt:
+    secret: ${JWT_SECRET:local-development-jwt-secret-please-override-in-production-envs}
+    expiration-millis: ${JWT_EXPIRATION:3600000}
