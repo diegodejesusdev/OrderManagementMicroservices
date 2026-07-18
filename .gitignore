@@ -1,0 +1,36 @@
+# Maven build output
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven wrapper (keep the wrapper script, ignore downloaded binaries)
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE — IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE — Eclipse / STS
+.classpath
+.project
+.settings/
+*.launch
+
+# IDE — VS Code
+.vscode/
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Environment — never commit real credentials
+.env
+
+# Logs
+*.log
+logs/
