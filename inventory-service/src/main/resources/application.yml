@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: inventory-service
+
+  datasource:
+    # Dockerized MySQL is exposed on host port 3307 (see docker-compose.yml).
+    url: jdbc:mysql://localhost:3307/inventory_db
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:devpassword}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
